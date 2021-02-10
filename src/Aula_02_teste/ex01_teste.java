@@ -13,7 +13,7 @@ public class ex01_teste {
         
         int quantidade;
         int valor;
-        char opcao_dois;
+        char opcao_tres;
         
     }
 }
