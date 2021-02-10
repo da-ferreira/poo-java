@@ -11,6 +11,9 @@ public class ex01_teste {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         
+        int quantidade;
+        int valor;
+        
         
         
         
