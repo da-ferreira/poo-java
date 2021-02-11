@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex02_AreaTriangulo {
+public class Ex02_AreaTriangulo {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

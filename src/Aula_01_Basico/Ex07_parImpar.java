@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex07_parImpar {
+public class Ex07_parImpar {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

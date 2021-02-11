@@ -5,7 +5,7 @@ package Aula_01_Basico;
  * @author ferreira
  */
 
-public class ex10_for_while_do_while {
+public class Ex10_for_while_do_while {
     public static void main(String[] args) {
         
         System.out.println("--- For ---");       
@@ -37,3 +37,4 @@ public class ex10_for_while_do_while {
         } while (x < 1);
     }
 }
+    

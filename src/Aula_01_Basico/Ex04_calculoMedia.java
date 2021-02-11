@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex04_calculoMedia {
+public class Ex04_calculoMedia {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

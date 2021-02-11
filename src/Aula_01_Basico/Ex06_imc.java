@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex06_imc {
+public class Ex06_imc {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

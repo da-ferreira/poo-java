@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex09_mensagem {
+public class Ex09_mensagem {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

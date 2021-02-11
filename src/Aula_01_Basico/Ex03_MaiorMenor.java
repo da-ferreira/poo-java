@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex03_MaiorMenor {
+public class Ex03_MaiorMenor {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

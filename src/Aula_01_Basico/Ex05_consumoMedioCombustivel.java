@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex05_consumoMedioCombustivel {
+public class Ex05_consumoMedioCombustivel {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

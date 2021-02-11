@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex01_EntradaSaida {
+public class Ex01_EntradaSaida {
     public static void main(String[] args) {
         // Cria Scanner para obter dados de entrada a partir de janela de comando.
         Scanner in = new Scanner(System.in);

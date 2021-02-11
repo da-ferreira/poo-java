@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author ferreira
  */
 
-public class ex08_menorDeTresNumeros {
+public class Ex08_menorDeTresNumeros {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         
