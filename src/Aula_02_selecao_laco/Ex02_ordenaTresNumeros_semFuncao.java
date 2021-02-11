@@ -23,7 +23,7 @@ public class Ex02_ordenaTresNumeros_semFuncao {
         int temp;
         
         // Colocando o menor de todos no n1.
-        if (n1 > n2 | n1 > n3) 
+        if (n1 > n2 || n1 > n3) 
             if (n2 < n3) {
                 temp = n1;
                 n1 = n2;
