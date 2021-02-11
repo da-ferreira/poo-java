@@ -35,7 +35,7 @@ public class Ex05_combustivel_comSwitchCase {
                 break;
                 
             default:  // caso a opcao escolhida nao seja nenhuma das acimas
-                System.out.println("Opcao Invalida");
+                System.out.println("Opcao Invalida!");
         }
     }
 }
