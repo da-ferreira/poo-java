@@ -26,12 +26,12 @@ public class Ex05_combustivel_comSwitchCase {
                 
             case 'D':
             case 'd':
-                System.out.printf("Total de alcool: %.2f\n", litros * 0.9798);
+                System.out.printf("Total de diesel: %.2f\n", litros * 0.9798);
                 break;
                 
             case 'G':
             case 'g':
-                System.out.printf("Total de alcool: %.2f\n", litros * 2.1009);
+                System.out.printf("Total de gasolina: %.2f\n", litros * 2.1009);
                 break;
                 
             default:  // caso a opcao escolhida nao seja nenhuma das acimas
