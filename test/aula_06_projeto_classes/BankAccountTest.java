@@ -14,34 +14,29 @@ public class BankAccountTest {
     public void testeConstrutorPadrao() {
         BankAccount conta1 = new BankAccount("Sergio Freitas");
         assertEquals(0.0, conta1.getBalance(), 0.0001);
-        assertEquals(1000, conta1.getAccountNumber());
         
         BankAccount conta2 = new BankAccount("Vitor Silva");
-        assertEquals(1001, conta2.getAccountNumber());
+        assertEquals("Vitor Silva", conta2.getOwner());
     }
-    /*
+    
     @Test
     public void testeConstrutorNaoPadrao() {
-        BankAccount conta = new BankAccount(500.00);
+        BankAccount conta = new BankAccount("Carlos", 500.00);
         assertEquals(500.0, conta.getBalance(), 0.0001);
-        //assertEquals(1002, conta.getAccountNumber());
     }
     
     @Test
     public void testeDeposit() {
-        BankAccount conta = new BankAccount(500.00);
+        BankAccount conta = new BankAccount("Felipe", 223.00);
         conta.deposit(200.00);
-        assertEquals(700.0, conta.getBalance(), 0.0001);
-        //assertEquals(1003, conta.getAccountNumber());
+        assertEquals(423.0, conta.getBalance(), 0.0001);
     }
     
     @Test
     public void testeWithDraw() {
-        BankAccount conta = new BankAccount(500.00);
-        conta.withDraw(150.00);
-        assertEquals(350.0, conta.getBalance(), 0.0001);
-        //assertEquals(1004, conta.getAccountNumber());
+        BankAccount conta = new BankAccount("David", 7.00);
+        conta.withDraw(3.00);
+        assertEquals(4.0, conta.getBalance(), 0.0001);
     }
-    */
-    
 }
+
