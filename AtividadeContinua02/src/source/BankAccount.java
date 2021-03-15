@@ -120,7 +120,6 @@ public class BankAccount {
         }
         
         return senha;
-        
     }
     
     // Métodos de acesso:
