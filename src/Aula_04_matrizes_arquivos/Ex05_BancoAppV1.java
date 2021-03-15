@@ -84,7 +84,7 @@ public class Ex05_BancoAppV1 {
         int cliente = -1;
         
         while (! clienteValido) {
-            System.out.printf("\nO depósito será efetuado na conta de qual cliente [0 a %d]: ", saldos.length - 1);
+            System.out.printf("\nO saque será efetuado na conta de qual cliente [0 a %d]: ", saldos.length - 1);
             cliente = in.nextInt();
             
             if (cliente >= 0 && cliente < saldos.length) {
@@ -99,7 +99,7 @@ public class Ex05_BancoAppV1 {
         int tipoConta = -1;
         
         while (! contaValida) {
-            System.out.print("O depósito será efetuado em qual tipo conta [0-CC,  1-CP]: ");
+            System.out.print("O saque será efetuado em qual tipo conta [0-CC,  1-CP]: ");
             tipoConta = in.nextInt();
             
             if (tipoConta == 0 || tipoConta == 1) {
@@ -122,7 +122,7 @@ public class Ex05_BancoAppV1 {
         int cliente = -1;
         
         while (! clienteValido) {
-            System.out.printf("\nO saque será efetuado na conta de qual cliente [0 a %d]: ", saldos.length - 1);
+            System.out.printf("\nO depósito será efetuado na conta de qual cliente [0 a %d]: ", saldos.length - 1);
             cliente = in.nextInt();
             
             if (cliente >= 0 && cliente < saldos.length) {
@@ -137,7 +137,7 @@ public class Ex05_BancoAppV1 {
         int tipoConta = -1;
         
         while (! contaValida) {
-            System.out.print("O saque será efetuado em qual tipo conta [0-CC,  1-CP]: ");
+            System.out.print("O deposito será efetuado em qual tipo conta [0-CC,  1-CP]: ");
             tipoConta = in.nextInt();
             
             if (tipoConta == 0 || tipoConta == 1) {
