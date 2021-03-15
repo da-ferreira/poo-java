@@ -1,6 +1,8 @@
 
 package source;
 
+import java.util.Random;
+
 /**
  * @author david-ferreira
  */
@@ -11,6 +13,7 @@ public class BankAccount {
     private String owner;       // Nome do proprietário da conta.
     private int accountNumber;  // Numero da conta.
     private double balance;     // Saldo da conta.
+    private String password;
     
     
     public BankAccount(String owner) {  // Cria uma conta com saldo igual a 0.0
@@ -18,8 +21,11 @@ public class BankAccount {
     }
     
     public BankAccount( String owner, double balance) {
+        checkName(owner);
+        
         this.owner = owner;
         this.balance = balance;
+        this.password = makePassword();
         this.accountNumber = lastAccountNumber++;
     }
     
@@ -68,6 +74,55 @@ public class BankAccount {
         target.balance += valor;
     }
     
+    /**
+     * Verifica se um nome de um dado correntista está correto
+     * @param owner: Nome do correntista
+     * @return O nome caso esteja certo.
+     */
+    private static String checkName(String owner) {
+        /* 
+         * Aceita apenas caracters de a-z, A-Z, espaco(" ")
+         * vogais acentuadas em maiusculo e minusculo.
+         * retorna true caso o regex tenha se aplicado a toda string.
+         */ 
+        boolean check = owner.matches("[a-zA-Z áàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+");
+
+        if (check)
+            return owner;
+        
+        throw new RuntimeException("ERRO! Nome inválido.");    
+    }
+    
+    /**
+     * Gera uma senha de 7 digitos, com os 3 primeiros de letras de a-z
+     * e os 4 ultimos de digitos 0-9.
+     * @return a senha gerada.
+     */
+    private static String makePassword() {
+        /*
+         * A string alfabeto armazena de a-z.
+         * Depois, no loop (3 vezes) será concatenado
+         * algum caracter, aleatoriamente, desse alfabeto (entre 0 e 25 a-z).
+         * Depois adiciona 4 numeros entre 0-9 a senha.
+         */
+        
+        String senha = "";
+        String alfabeto = "abcdefghijklmnopqrstuvwxyz";
+        
+        Random gerador = new Random();
+        
+        for (int i=0; i < 3; i++) {
+            senha += alfabeto.charAt(gerador.nextInt(26));  // Escolhe um numero entre 0 e 25.
+        }
+        
+        for (int i=0; i < 4; i++) {
+            senha += String.format("%d", gerador.nextInt(10));  // Escolhe um numero entre 0 e 9.
+        }
+        
+        return senha;
+        
+    }
+    
     // Métodos de acesso:
     public int getAccountNumber() {
         return accountNumber;
@@ -97,9 +152,9 @@ public class BankAccount {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-    
+        
     @Override
     public String toString() {
-        return String.format("Owner: %s | Balance: %.4f | AccountNumber: %d", this.owner, this.balance, this.accountNumber);
+        return String.format("Owner: %s | Balance: %.4f | AccountNumber: %d | Password: %s", this.owner, this.balance, this.accountNumber, this.password);
     }
 }
