@@ -13,7 +13,8 @@ public class BankAccount {
     private String owner;       // Nome do proprietário da conta.
     private int accountNumber;  // Numero da conta.
     private double balance;     // Saldo da conta.
-    private String password;
+    private String password;    // Senha do cliente
+    private int cpmf;           // Valores da cobrança de cpmf
     
     
     public BankAccount(String owner) {  // Cria uma conta com saldo igual a 0.0
@@ -90,7 +91,7 @@ public class BankAccount {
         if (check)
             return owner;
         
-        throw new RuntimeException("ERRO! Nome inválido.");    
+        throw new RuntimeException("ERRO: Nome inválido.");    
     }
     
     /**
@@ -120,6 +121,7 @@ public class BankAccount {
         }
         
         return senha;
+        
     }
     
     // Métodos de acesso:
