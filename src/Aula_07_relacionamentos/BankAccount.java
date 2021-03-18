@@ -10,7 +10,7 @@ public class BankAccount {
     private int accountNumber;  // Numero da conta.
     private double balance;     // Saldo da conta.
     private String password;    // Senha da conta.
-    private String tipo;         // Tipo da conta (corrente ou poupança)
+    private String tipo;        // Tipo da conta (corrente ou poupança)
     
     
     public BankAccount(int accountNumber, double balance) {  // Cria uma conta com saldo igual a 0.0
