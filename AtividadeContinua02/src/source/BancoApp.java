@@ -58,6 +58,5 @@ public class BancoApp {
         }
         
         System.out.println("\nAplicação terminada. Volte Sempre :) \n");
-        
     }
 }

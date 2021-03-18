@@ -14,7 +14,7 @@ public class BankAccount {
     private int accountNumber;  // Numero da conta.
     private double balance;     // Saldo da conta.
     private String password;    // Senha do cliente
-    private int cpmf;           // Valores da cobrança de cpmf
+    private int cpmf;           // Valores da cobrança de cpmf (0.25 % de cada saque)
     
     
     public BankAccount(String owner) {  // Cria uma conta com saldo igual a 0.0
@@ -54,6 +54,14 @@ public class BankAccount {
         }
         
         this.balance -= value;
+        
+        /*
+         * De cada operação saque será retirado da conta
+         * 0.25 % do saque e guardado no atributo cpmf.
+         */
+        double calc_cmpf = 0.25 * value / 100;
+        this.balance -= calc_cmpf;
+        this.cpmf += calc_cmpf;
     }
     
     /**
@@ -121,7 +129,6 @@ public class BankAccount {
         }
         
         return senha;
-        
     }
     
     // Métodos de acesso:
@@ -139,6 +146,10 @@ public class BankAccount {
     
     public String getOwner() {
         return owner;
+    }
+    
+    public double getCpmf() {
+        return cpmf;
     }
     
     // Métodos modificadores:
