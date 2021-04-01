@@ -32,7 +32,8 @@ public class BankAccount {
         this.balance -= value;
     }
     
-    // Métodos de acesso:
+    /* Métodos de acesso */
+    
     public String getOwner() {
         return owner;
     }
@@ -47,6 +48,24 @@ public class BankAccount {
 
     public String getPassword() {
         return password;
+    }
+    
+    /* Métodos modificadores */
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     @Override

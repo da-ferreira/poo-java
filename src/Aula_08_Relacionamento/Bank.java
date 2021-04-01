@@ -1,6 +1,9 @@
 
 package Aula_08_Relacionamento;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 /**
  * @author david-ferreira
  * Classe que tera N instancias de BankAccount
@@ -15,6 +18,36 @@ public class Bank {
         last = 0;
     }
     
+    /**
+     * Lê o arquivo passado e atribui cada linha a um novo BankAccount.
+     * @param filename O endereço do arquivo.
+     */
+    public Bank(String filename) {
+        accounts = new BankAccount[100];  // Um banco com no máximo 100 contas.
+        
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            
+            int quantidade = Integer.parseInt(reader.readLine());
+            
+            for (int i=0; i < quantidade; i++) {
+                String dados[] = reader.readLine().split("#");
+                
+                int numberAccount = Integer.parseInt(dados[0]);
+                String passwordAccount = dados[1];
+                String ownerAccount = dados[2];
+                double balanceAccount = Double.parseDouble(dados[3]);
+                
+                addAccount(new BankAccount(ownerAccount, numberAccount, balanceAccount, passwordAccount));
+            }
+            
+            reader.close();
+        }
+        catch (Exception error) {
+            System.exit(-1);
+        }
+    }
+   
     /**
      * Adiciona uma nova conta ao Banco.
      * @param newAccount: Nova conta.
