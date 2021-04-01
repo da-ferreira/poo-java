@@ -30,9 +30,9 @@ public class Bank {
     /** @return A soma do saldo de todas as contas. */
     public double getTotalBalance() {
         double soma = 0;
-        
-        for (BankAccount conta : accounts) {
-            soma += conta.getBalance();
+
+        for (int i=0; i < last; i++) {
+            soma += accounts[i].getBalance();
         }
         
         return soma;
@@ -43,9 +43,9 @@ public class Bank {
      * @param accountNumber: Numero da conta.  
      */
     public BankAccount find(int accountNumber) {
-        for (BankAccount conta : accounts) {
-            if (conta.getAccountNumber() == accountNumber)
-                return conta;
+        for (int i=0; i < last; i++) {
+            if (accounts[i].getAccountNumber() == accountNumber)
+                return accounts[i];
         }
         
         return null;  // A conta não está no banco.
@@ -73,13 +73,12 @@ public class Bank {
     public int count(double limit) {
         int result = 0;
         
-        for (BankAccount conta : accounts) {
-            if (conta.getBalance() >= limit)
+        for (int i=0; i < last; i++) {
+            if (accounts[i].getBalance() >= limit)
                 result++;
         }
         
         return result;
-        
     }
     
     public int getLast() {
