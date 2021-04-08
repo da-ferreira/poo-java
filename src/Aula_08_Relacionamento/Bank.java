@@ -18,36 +18,6 @@ public class Bank {
         accounts = new BankAccount[100];  // Um banco com no máximo 100 contas.
         last = 0;
     }
-    
-    /**
-     * Lê o arquivo passado e atribui cada linha a um novo BankAccount.
-     * @param filename O endereço do arquivo.
-     */
-    public Bank(String filename) {
-        accounts = new BankAccount[100];
-        
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
-            
-            int quantidade = Integer.parseInt(reader.readLine());
-            
-            for (int i=0; i < quantidade; i++) {
-                String dados[] = reader.readLine().split("#");
-                
-                int numberAccount = Integer.parseInt(dados[0]);
-                String passwordAccount = dados[1];
-                String ownerAccount = dados[2];
-                double balanceAccount = Double.parseDouble(dados[3]);
-                
-                addAccount(new BankAccount(ownerAccount, numberAccount, balanceAccount, passwordAccount));
-            }
-            
-            reader.close();  // Fechando a comunicação do arquivo físico com o arquivo lógico.
-        }
-        catch (IOException error) {
-            System.exit(-1);
-        }
-    }
    
     /**
      * Adiciona uma nova conta ao Banco.
