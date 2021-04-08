@@ -12,25 +12,25 @@ import Aula_09_Colecoes.Bank;
 public class BankTestFile {
     @Test
     public void testeContrutor() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\entrada.txt");
+        Bank banco = new Bank("entrada.txt");
         assertNotNull(banco);
     }
     
     @Test
     public void testeNumberAccounts() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\entrada.txt");
+        Bank banco = new Bank("entrada.txt");
         assertEquals(5, banco.getAccounts().size());
     }
     
     @Test
     public void testeGetTotalBalance() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\entrada.txt");
+        Bank banco = new Bank("entrada.txt");
         assertEquals(8910.0, banco.getTotalBalance(), 0.0001);
     }
     
     @Test
     public void testeFind() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\entrada.txt");
+        Bank banco = new Bank("entrada.txt");
         
         assertEquals("Roberto Rodrigues", banco.find(1011).getOwner());
         assertNull(banco.find(1037111));
@@ -40,14 +40,14 @@ public class BankTestFile {
     
     @Test
     public void testeGetMaximum() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\entrada.txt");
+        Bank banco = new Bank("entrada.txt");
         assertEquals("Guilherme Freitas", banco.getMaximum().getOwner());
         assertEquals(1033, banco.getMaximum().getAccountNumber());
     }
     
     @Test
     public void testeCount() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\entrada.txt");
+        Bank banco = new Bank("entrada.txt");
 
         assertEquals(3, banco.count(1500.0));
         assertEquals(5, banco.count(275.0));
