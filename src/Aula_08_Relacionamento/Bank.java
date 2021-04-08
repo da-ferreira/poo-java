@@ -3,6 +3,7 @@ package Aula_08_Relacionamento;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * @author david-ferreira
@@ -23,7 +24,7 @@ public class Bank {
      * @param filename O endereço do arquivo.
      */
     public Bank(String filename) {
-        accounts = new BankAccount[100];  // Um banco com no máximo 100 contas.
+        accounts = new BankAccount[100];
         
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -41,9 +42,9 @@ public class Bank {
                 addAccount(new BankAccount(ownerAccount, numberAccount, balanceAccount, passwordAccount));
             }
             
-            reader.close();
+            reader.close();  // Fechando a comunicação do arquivo físico com o arquivo lógico.
         }
-        catch (Exception error) {
+        catch (IOException error) {
             System.exit(-1);
         }
     }
