@@ -92,27 +92,5 @@ public class BankTest {
         assertEquals(3, banco.count(23.0));
         assertEquals(0, banco.count(1001.0));
     }
-   
-    @Test
-    public void testeConstrutorComArquivo() {
-        Bank banco = new Bank("C:\\Users\\Home\\Documents\\NetBeansProjects\\POO-CC3A\\test\\aula_08_colecao_de_contas\\entrada_contas.txt");
-        
-        assertEquals("Joao Carlos de Melo Batista", banco.getAccounts()[0].getOwner());
-        assertEquals("Ana Fugencia Arruda", banco.getAccounts()[1].getOwner());
-        assertEquals("Gilberto Gil do Vigor", banco.getAccounts()[2].getOwner());
-        
-        assertEquals(115, banco.getAccounts()[0].getAccountNumber());
-        assertEquals(1100, banco.getAccounts()[1].getAccountNumber());
-        assertEquals(66, banco.getAccounts()[2].getAccountNumber());
-        
-        assertEquals(589.23, banco.getAccounts()[0].getBalance(), 0.0001);
-        assertEquals(1456.33, banco.getAccounts()[1].getBalance(), 0.0001);
-        assertEquals(888.12, banco.getAccounts()[2].getBalance(), 0.0001);
-        
-        assertEquals(3, banco.count(400.0));
-        assertEquals(1, banco.count(1412.0));
-        
-        assertEquals(2933.68, banco.getTotalBalance(), 0.0001);
-    }
 }
     
