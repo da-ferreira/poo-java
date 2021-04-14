@@ -105,5 +105,33 @@ public class Bank {
     public ArrayList<BankAccount> getAccounts() {
         return accounts;
     }
+    
+    /**
+     * Verifica se, dada uma instancia de BankAccount, a conta está ou não no Banco de contas.
+     * @param bank O objeto a ser verificado.
+     * @return true se no Banco de contas já existir uma conta igual a bank; false, caso contrário.
+     */
+    public boolean contains(BankAccount bank) {
+        for (BankAccount bank_i : accounts)
+            if (bank_i.equals(bank))
+                return true;
+        
+        return false;
+    }
+    
+    public void removeAccount(int accountNumber) {
+        BankAccount bank_instance = null;
+        
+        for (BankAccount bank : accounts) {
+            if (accountNumber == bank.getAccountNumber())
+                bank_instance = bank;
+        }
+        
+        accounts.remove(bank_instance);
+    }
+    
+    public void removeAccount(BankAccount bank) {
+        accounts.remove(bank);
+    }
 } 
  
