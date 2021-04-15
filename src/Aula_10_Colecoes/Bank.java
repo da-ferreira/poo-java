@@ -140,24 +140,26 @@ public class Bank {
         return false;
     }
     
+    /** Remove uma conta no banco por número da conta.
+     * @param accountNumber Número da conta do objeto BankAccount a ser removido. */
     public void removeAccount(int accountNumber) {
-        BankAccount bank_instance = null;
-        
         for (BankAccount bank : accounts) {
-            if (accountNumber == bank.getAccountNumber())
-                bank_instance = bank;
+            if (accountNumber == bank.getAccountNumber()) {
+                accounts.remove(bank);
+                break;
+            }
         }
-        
-        accounts.remove(bank_instance);
     }
     
+    /** Remove uma conta no banco por instância.
+     * @param bank Obejto BankAccount a ser removido. */
     public void removeAccount(BankAccount bank) {
         accounts.remove(bank);
     }
     
-    /** Ordena todas as contas no banco, em ordem crescente, pelos seus números (accountNumber). */
+    /** (SelectionSort) Ordena todas as contas no banco, em ordem crescente, pelos seus números (accountNumber). */
     public void sort() {
-        for (int i=0; i < accounts.size(); i++) {
+        for (int i=0; i < accounts.size() - 1; i++) {
             int posicao_menor = i;
             
             for (int j=i + 1; j < accounts.size(); j++) {  // Cada iteração vai acumulando (a esquerda) a área ordenada.
@@ -180,17 +182,17 @@ public class Bank {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filename));  // gravação
             
-            for (int i=0; i < accounts.size(); i++) {
-                writer.write("Conta número: " + accounts.get(i).getAccountNumber());
+            for (BankAccount bank : accounts) {
+                writer.write("Conta número: " + bank.getAccountNumber());
                 writer.newLine();
                 
-                writer.write("Senha: " + accounts.get(i).getPassword());
+                writer.write("Senha: " + bank.getPassword());
                 writer.newLine();
                 
-                writer.write("Proprietário: " + accounts.get(i).getOwner());
+                writer.write("Proprietário: " + bank.getOwner());
                 writer.newLine();
                 
-                writer.write(String.format("Saldo: %.2f", accounts.get(i).getBalance()));
+                writer.write("Saldo: " + bank.getBalance());
                 writer.newLine();
                 
                 writer.newLine();  // Separa as contas por uma linha em branco
