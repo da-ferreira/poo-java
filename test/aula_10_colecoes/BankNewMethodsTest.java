@@ -60,7 +60,14 @@ public class BankNewMethodsTest {
     @Test
     public void testeDump() {
         Bank banco = new Bank("entrada.txt");
+        
+        assertNotNull(banco.getAccounts());
+        assertEquals(5, banco.size());
+        
         banco.dump("saida.txt");
+        
+        assertNotNull(banco.getAccounts());
+        assertEquals(5, banco.size());
     }
     
     @Test
