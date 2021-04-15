@@ -1,5 +1,5 @@
 
-package Aula_09_Colecoes;
+package Aula_10_Colecoes;
 
 /**
  * @author david-ferreira
@@ -66,6 +66,16 @@ public class BankAccount {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    /** 
+     * Verifica se dois objetos da classe são iguais, comparando cada um dos atributos.
+     * @param bank Objeto a ser verificado.
+     * @return true se forem iguais; false, caso contrário.
+     */
+    public boolean equals(BankAccount bank) {
+        return owner.equals(bank.getOwner()) && accountNumber == bank.getAccountNumber() &&
+                balance == bank.getBalance() && password.equals(bank.getPassword());
     }
     
     @Override

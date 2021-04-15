@@ -1,0 +1,207 @@
+
+package Aula_10_Colecoes;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+/**
+ * @author david-ferreira
+ */
+
+public class Bank {
+    private ArrayList<BankAccount> accounts;  // Vetor dinamico indexado de contas bancárias.
+    
+    public Bank() {
+        accounts = new ArrayList<>();
+    }
+    
+    /**
+     * Lê o arquivo passado e atribui cada linha a um novo BankAccount.
+     * @param filename O endereço do arquivo.
+     */
+    public Bank(String filename) {
+        accounts = new ArrayList<>();
+        
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            
+            int quantidade = Integer.parseInt(reader.readLine());
+            
+            for (int i=0; i < quantidade; i++) {
+                String dados[] = reader.readLine().split("#");
+                
+                int numberAccount = Integer.parseInt(dados[0]);
+                String passwordAccount = dados[1];
+                String ownerAccount = dados[2];
+                double balanceAccount = Double.parseDouble(dados[3]);
+                
+                accounts.add(new BankAccount(ownerAccount, numberAccount, balanceAccount, passwordAccount));
+            }
+            
+            reader.close();  // Fechando a comunicação do arquivo físico com o arquivo lógico.
+        }
+        catch (IOException error) {
+            System.exit(-1);
+        }
+    }
+    
+    public int size() {
+        return accounts.size();
+    }
+   
+    /**
+     * Adiciona uma nova conta ao Banco.
+     * @param newAccount: Nova conta.
+     */
+    public void addAccount(BankAccount newAccount) {        
+        accounts.add(newAccount);  // Insere no final do vetor.
+    }
+    
+    /** @return A soma do saldo de todas as contas. */
+    public double getTotalBalance() {
+        double soma = 0;
+        
+        for (BankAccount bank : accounts)
+            soma += bank.getBalance();
+        
+        return soma;
+    }
+    
+    /**
+     * @return Devolve a conta vinculada ao numero informado.
+     * @param accountNumber: Numero da conta.  
+     */
+    public BankAccount find(int accountNumber) {
+        int inicio = 0;
+        int fim = accounts.size() - 1;
+        
+        while (inicio <= fim) {  // Caso contrario, a conta não está no banco.
+            int meio = (inicio + fim) / 2;
+            
+            if (accountNumber == accounts.get(meio).getAccountNumber()) {
+                return accounts.get(meio);
+            }
+            else if (accountNumber < accounts.get(meio).getAccountNumber()) {
+                fim = meio - 1;
+            }
+            else if (accountNumber > accounts.get(meio).getAccountNumber()) {
+                inicio = meio + 1;
+            }
+        }
+        
+        return null;  // A conta não está no banco.
+    }
+    
+    /** @return A conta que contém o maior saldo. */
+    public BankAccount getMaximum() {
+        BankAccount maior = accounts.get(0);
+        
+        for (BankAccount bank : accounts)
+            if (bank.getBalance() > maior.getBalance())
+                maior = bank;
+        
+        return maior;
+    }
+    
+    /**
+     * @param limit: Limite de saldo.
+     * @return Retorna o numero de contas que tenha o saldo >= ao limit.
+     */
+    public int count(double limit) {
+        int result = 0;
+        
+       for (BankAccount bank : accounts)
+            if (bank.getBalance() >= limit)
+                result++;
+        
+        return result;
+    }
+
+    public ArrayList<BankAccount> getAccounts() {
+        return accounts;
+    }
+    
+    /* MÉTODOS ADICIONAIS */
+    
+    /**
+     * Verifica se, dada uma instancia de BankAccount, a conta está ou não no Banco de contas.
+     * @param bank O objeto a ser verificado.
+     * @return true se no Banco de contas já existir uma conta igual a bank; false, caso contrário.
+     */
+    public boolean contains(BankAccount bank) {
+        for (BankAccount bank_i : accounts)
+            if (bank_i.equals(bank))
+                return true;
+        
+        return false;
+    }
+    
+    public void removeAccount(int accountNumber) {
+        BankAccount bank_instance = null;
+        
+        for (BankAccount bank : accounts) {
+            if (accountNumber == bank.getAccountNumber())
+                bank_instance = bank;
+        }
+        
+        accounts.remove(bank_instance);
+    }
+    
+    public void removeAccount(BankAccount bank) {
+        accounts.remove(bank);
+    }
+    
+    /** Ordena todas as contas no banco, em ordem crescente, pelos seus números (accountNumber). */
+    public void sort() {
+        for (int i=0; i < accounts.size(); i++) {
+            int posicao_menor = i;
+            
+            for (int j=i + 1; j < accounts.size(); j++) {  // Cada iteração vai acumulando (a esquerda) a área ordenada.
+                if (accounts.get(j).getAccountNumber() < accounts.get(posicao_menor).getAccountNumber())
+                    posicao_menor = j;
+            }
+            
+            // Troca (swap)
+            BankAccount temp = accounts.get(i);  
+            accounts.set(i, accounts.get(posicao_menor));  
+            accounts.set(posicao_menor, temp);
+        }
+    }
+    
+    /**
+     * Recebe um nome de um arquivo e escreve todas as informações de cada conta do banco nele.
+     * @param filename O nome do arquivo (o caminho em diretorio).
+     */
+    public void dump(String filename) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));  // gravação
+            
+            for (int i=0; i < accounts.size(); i++) {
+                writer.write("Conta número: " + accounts.get(i).getAccountNumber());
+                writer.newLine();
+                
+                writer.write("Senha: " + accounts.get(i).getPassword());
+                writer.newLine();
+                
+                writer.write("Proprietário: " + accounts.get(i).getOwner());
+                writer.newLine();
+                
+                writer.write(String.format("Saldo: %.2f", accounts.get(i).getBalance()));
+                writer.newLine();
+                
+                writer.newLine();  // Separa as contas por uma linha em branco
+            }
+            
+            writer.flush();
+            writer.close();
+        }
+        catch (IOException error) {
+            System.exit(-1);
+        }
+    }
+} 
+ 

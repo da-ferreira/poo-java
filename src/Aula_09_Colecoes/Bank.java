@@ -2,9 +2,7 @@
 package Aula_09_Colecoes;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -76,22 +74,9 @@ public class Bank {
      * @param accountNumber: Numero da conta.  
      */
     public BankAccount find(int accountNumber) {
-        int inicio = 0;
-        int fim = accounts.size() - 1;
-        
-        while (inicio <= fim) {  // Caso contrario, a conta não está no banco.
-            int meio = (inicio + fim) / 2;
-            
-            if (accountNumber == accounts.get(meio).getAccountNumber()) {
-                return accounts.get(meio);
-            }
-            else if (accountNumber < accounts.get(meio).getAccountNumber()) {
-                fim = meio - 1;
-            }
-            else if (accountNumber > accounts.get(meio).getAccountNumber()) {
-                inicio = meio + 1;
-            }
-        }
+        for (BankAccount bank : accounts)
+            if (bank.getAccountNumber() == accountNumber)
+                return bank;
         
         return null;  // A conta não está no banco.
     }
@@ -123,85 +108,6 @@ public class Bank {
 
     public ArrayList<BankAccount> getAccounts() {
         return accounts;
-    }
-    
-    /* MÉTODOS ADICIONAIS */
-    
-    /**
-     * Verifica se, dada uma instancia de BankAccount, a conta está ou não no Banco de contas.
-     * @param bank O objeto a ser verificado.
-     * @return true se no Banco de contas já existir uma conta igual a bank; false, caso contrário.
-     */
-    public boolean contains(BankAccount bank) {
-        for (BankAccount bank_i : accounts)
-            if (bank_i.equals(bank))
-                return true;
-        
-        return false;
-    }
-    
-    public void removeAccount(int accountNumber) {
-        BankAccount bank_instance = null;
-        
-        for (BankAccount bank : accounts) {
-            if (accountNumber == bank.getAccountNumber())
-                bank_instance = bank;
-        }
-        
-        accounts.remove(bank_instance);
-    }
-    
-    public void removeAccount(BankAccount bank) {
-        accounts.remove(bank);
-    }
-    
-    /** Ordena todas as contas no banco, em ordem crescente, pelos seus números (accountNumber). */
-    public void sort() {
-        for (int i=0; i < accounts.size(); i++) {
-            int posicao_menor = i;
-            
-            for (int j=i + 1; j < accounts.size(); j++) {  // Cada iteração vai acumulando (a esquerda) a área ordenada.
-                if (accounts.get(j).getAccountNumber() < accounts.get(posicao_menor).getAccountNumber())
-                    posicao_menor = j;
-            }
-            
-            // Troca (swap)
-            BankAccount temp = accounts.get(i);  
-            accounts.set(i, accounts.get(posicao_menor));  
-            accounts.set(posicao_menor, temp);
-        }
-    }
-    
-    /**
-     * Recebe um nome de um arquivo e escreve todas as informações de cada conta do banco nele.
-     * @param filename O nome do arquivo (o caminho em diretorio).
-     */
-    public void dump(String filename) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));  // gravação
-            
-            for (int i=0; i < accounts.size(); i++) {
-                writer.write("Conta número: " + accounts.get(i).getAccountNumber());
-                writer.newLine();
-                
-                writer.write("Senha: " + accounts.get(i).getPassword());
-                writer.newLine();
-                
-                writer.write("Proprietário: " + accounts.get(i).getOwner());
-                writer.newLine();
-                
-                writer.write(String.format("Saldo: %.2f", accounts.get(i).getBalance()));
-                writer.newLine();
-                
-                writer.newLine();  // Separa as contas por uma linha em branco
-            }
-            
-            writer.flush();
-            writer.close();
-        }
-        catch (IOException error) {
-            System.exit(-1);
-        }
     }
 } 
  
