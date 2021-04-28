@@ -1,0 +1,7 @@
+42048004:Estrutura de Dados
+42048004:Programação Orientada a Objetos
+42048004:Sistemas Operacionais
+51115422:Programação Orientada a Objetos
+51115422:Estrutura de Dados
+90921479:Programação Orientada a Objetos
+90921479:Sistemas Operacionais
