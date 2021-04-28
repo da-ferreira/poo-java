@@ -1,7 +1,0 @@
-81149942:Estrutura de Dados
-81149942:Programação Orientada a Objetos
-81149942:Sistemas Operacionais
-18422511:Programação Orientada a Objetos
-18422511:Estrutura de Dados
-22127787:Programação Orientada a Objetos
-22127787:Sistemas Operacionais
