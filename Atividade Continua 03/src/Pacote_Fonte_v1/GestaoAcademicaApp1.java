@@ -74,16 +74,58 @@ public class GestaoAcademicaApp1 {
     }
     
     public static void informacoes_estudantes_disciplina(Faculdade faculdade) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("\nInforme o código da disciplina (nome): ");
+        String escolha = in.nextLine();
+                
+        Disciplina disciplina_escolhida = null;
         
+        for (Disciplina discipline : faculdade.getDisciplinas()) {
+            if (discipline.getCodigo().equals(escolha))
+                disciplina_escolhida = discipline;
+        }
+        
+        if (disciplina_escolhida != null) {
+            System.out.printf("\nNa disciplina %s tem %d estudantes matriculados:\n", disciplina_escolhida.getCodigo(), 
+                                                                                      disciplina_escolhida.getMatriculas().size());
+            
+            for (Matricula student : disciplina_escolhida.getMatriculas()) {
+                System.out.printf("ID: %d, Nome: %s, E-mail: %s\n", student.getEstudante().getId(), student.getEstudante().getNome(),
+                                                                                                    student.getEstudante().getNome());
+            }
+        }
+        else {  // não achou a disciplina informada
+            System.out.println("\nCódigo da disciplina informada não consta na faculdade. Tente novamente.");
+        }
     }
     
     public static void informacoes_disciplinas_estudante(Faculdade faculdade) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("\nInforme o ID do estudante: ");
+        int escolha = in.nextInt();
         
+        Estudante estudante_escolhido = null;
+        
+        for (Estudante student : faculdade.getEstudantes()) {
+            if (student.getId() == escolha)
+                estudante_escolhido = student;
+        }
+        
+        if (estudante_escolhido != null) {
+            System.out.println("");
+            int horas = 0;  // total de créditos 
+            
+            for (Matricula matr : estudante_escolhido.getMatriculas()) {
+                System.out.printf("Código: %s, Créditos: %d\n", matr.getDisciplina().getCodigo(), matr.getDisciplina().getCreditos());
+                horas += matr.getDisciplina().getCreditos();
+            }
+            
+            System.out.printf("\nO estudante %s do id %d tem um total de créditos (horas) de %d em sua matrículas.\n", estudante_escolhido.getNome(),
+                                                                                                                   estudante_escolhido.getId(), horas);
+        }
+        else {
+            System.out.println("\nO ID do estudante escolhido não está na faculdade. Tente novamente.");
+        }
     }
 }
-
-/*
-System.out.println(faculdade.getNome());
-System.out.println(faculdade.getDisciplinas());
-System.out.println(faculdade.getEstudantes().get(0).getMatriculas().get(0).getDisciplina().getCodigo()); // Estrutura de Dados
-*/
+   
