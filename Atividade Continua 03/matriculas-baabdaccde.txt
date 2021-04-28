@@ -1,7 +1,0 @@
-16101121:Estrutura de Dados
-16101121:Programação Orientada a Objetos
-16101121:Sistemas Operacionais
-85218101:Programação Orientada a Objetos
-85218101:Estrutura de Dados
-19901428:Programação Orientada a Objetos
-19901428:Sistemas Operacionais
