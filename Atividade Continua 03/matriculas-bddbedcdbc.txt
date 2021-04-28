@@ -1,7 +1,0 @@
-26621049:Estrutura de Dados
-26621049:Programação Orientada a Objetos
-26621049:Sistemas Operacionais
-42218218:Programação Orientada a Objetos
-42218218:Estrutura de Dados
-01942411:Programação Orientada a Objetos
-01942411:Sistemas Operacionais
