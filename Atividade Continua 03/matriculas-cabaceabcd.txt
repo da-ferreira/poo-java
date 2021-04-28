@@ -1,0 +1,7 @@
+06108811:Estrutura de Dados
+06108811:Programação Orientada a Objetos
+06108811:Sistemas Operacionais
+05001515:Programação Orientada a Objetos
+05001515:Estrutura de Dados
+81190117:Programação Orientada a Objetos
+81190117:Sistemas Operacionais

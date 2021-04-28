@@ -59,14 +59,21 @@ public class Faculdade {
                     break;
                 
                 String dados_linha[] = linha.split(":");
-                /* Terminar fazendo com que no estudante e disciplina seja adicionado as matriculas do arquivo. */
+                
+                /* Estudante e disciplina seja vinculado a cada estudante. */
                 
                 long id_student = Integer.parseInt(dados_linha[0]);  // Id do estudante matriculado na materia i.
-                String materia_matriculada = dados_linha[1];         // Materia que o estudante i está matriculado.
+                String materia_matriculada = dados_linha[1];         // Materia que o estudante i está matriculado (disciplina).
                 
                 for (Estudante student : estudantes) {
-                    if (student.getId() == id_student)
-                        
+                    if (student.getId() == id_student) {   
+                        for (Disciplina discipline : disciplinas) {
+                            if (discipline.getCodigo().equals(materia_matriculada)) {
+                                student.addMatricula(new Matricula(student, discipline));
+                                discipline.addMatricula(new Matricula(student, discipline));
+                            }
+                        }
+                    }
                 }
             }
             

@@ -1,0 +1,7 @@
+06812198:Estrutura de Dados
+06812198:Programação Orientada a Objetos
+06812198:Sistemas Operacionais
+50101285:Programação Orientada a Objetos
+50101285:Estrutura de Dados
+20779892:Programação Orientada a Objetos
+20779892:Sistemas Operacionais
