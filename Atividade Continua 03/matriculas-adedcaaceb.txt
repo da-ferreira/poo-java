@@ -1,7 +1,0 @@
-98426000:Estrutura de Dados
-98426000:Programação Orientada a Objetos
-98426000:Sistemas Operacionais
-42551515:Programação Orientada a Objetos
-42551515:Estrutura de Dados
-91992487:Programação Orientada a Objetos
-91992487:Sistemas Operacionais
