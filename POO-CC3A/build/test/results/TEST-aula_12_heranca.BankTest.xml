@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="daferreira" name="aula_12_heranca.BankTest" skipped="0" tests="2" time="0.088" timestamp="2021-04-29T14:32:38">
+<testsuite errors="0" failures="0" hostname="daferreira" name="aula_12_heranca.BankTest" skipped="0" tests="2" time="0.065" timestamp="2021-05-05T16:14:18">
   <properties>
     <property name="netbeans.autoupdate.country" value="BR" />
     <property name="ant.file.type.POO-CC3A" value="file" />
@@ -42,7 +42,7 @@
     <property name="user.name" value="daferreira" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner aula_12_heranca.BankTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\build\test\results\TEST-aula_12_heranca.BankTest.xml crashfile=C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\build\junitvmwatcher8684580699965584841.properties propsfile=C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\build\junit3684611484303380821.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner aula_12_heranca.BankTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\build\test\results\TEST-aula_12_heranca.BankTest.xml crashfile=C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\build\junitvmwatcher1168518270054352254.properties propsfile=C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\build\junit7103410978947030610.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -73,7 +73,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\null339188568" />
+    <property name="javac.includesfile.binary" value="C:\Users\Home\Documents\NetBeansProjects\POO-CC3A\null1740316556" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value=":build/classes:C:\Program Files (x86)\NetBeans 8.2\platform\modules\ext\junit-4.12.jar:C:\Program Files (x86)\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -311,7 +311,7 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="aula_12_heranca.BankTest" name="testeAddAccount" time="0.0" />
+  <testcase classname="aula_12_heranca.BankTest" name="testeAddSavingsAccount" time="0.0" />
   <testcase classname="aula_12_heranca.BankTest" name="testeContrutor" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
