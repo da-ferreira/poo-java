@@ -6,13 +6,11 @@
         <group name="POO-CC3A-JAVA"/>
         <group name="POO-CC3A"/>
         <group name="POO - CC3A">
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/StateLawAccount.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/BankAccount.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/CityLawAccount.java</file>
-            <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/FederationLawAccount.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/LawAccount.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/RegularAccount.java</file>
             <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/src/Aula_14_Heranca_Classe_Abstrata/Bank.java</file>
+            <file>file:/C:/Users/Home/Documents/NetBeansProjects/POO-CC3A/test/aula_14_heranca_classe_abstrata/BankTest.java</file>
         </group>
     </open-files>
 </project-private>
