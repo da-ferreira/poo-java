@@ -1,6 +1,7 @@
 
 package Aula_14_Heranca_Classe_Abstrata;
 
+import Aula_12_Heranca.BankAccount;
 import Aula_12_Heranca.SavingsAccount;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,10 +14,10 @@ import java.util.ArrayList;
  * @author david-ferreira
  */
 
-public class Bank {
+public class BankAntigo {
     private ArrayList<BankAccount> accounts;  // Vetor dinamico indexado de contas bancárias.
     
-    public Bank() {
+    public BankAntigo() {
         accounts = new ArrayList<>();
     }
     
@@ -24,8 +25,7 @@ public class Bank {
      * Lê o arquivo passado e atribui cada linha a um novo BankAccount.
      * @param filename O endereço do arquivo.
      */
-    /*
-    public Bank(String filename) {
+    public BankAntigo(String filename) {
         accounts = new ArrayList<>();
         
         try {
@@ -61,7 +61,6 @@ public class Bank {
             System.exit(-1);
         }
     }
-    */
     
     public int size() {
         return accounts.size();
@@ -238,7 +237,6 @@ public class Bank {
     }
     
     /** @return A coleção de contas do tipo BankAccount */
-    /*
     public ArrayList<BankAccount> accounts() {
         ArrayList<BankAccount> contasCorrentes = new ArrayList<>();
         
@@ -249,10 +247,8 @@ public class Bank {
         
         return contasCorrentes;
     }
-    */
     
     /** @return A coleção de contas do tipo BankAccount */
-    /*
     public ArrayList<SavingsAccount> savingsAccounts() {
         ArrayList<SavingsAccount> contasPoupancas = new ArrayList<>();
         
@@ -263,6 +259,5 @@ public class Bank {
         
         return contasPoupancas;
     }
-    */
 } 
  
