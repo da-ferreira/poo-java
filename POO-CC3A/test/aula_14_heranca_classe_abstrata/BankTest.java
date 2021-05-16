@@ -4,7 +4,7 @@ package aula_14_heranca_classe_abstrata;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import Aula_14_Heranca_Classe_Abstrata.Bank;
-import Aula_14_Heranca_Classe_Abstrata.LawAccount;
+import Aula_14_Heranca_Classe_Abstrata.LawAccountAntigo;
 import Aula_12_Heranca.SavingsAccount;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,11 +44,12 @@ public class BankTest {
         assertNotNull(banco);
         
         SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
-        LawAccount conta;
+        LawAccountAntigo conta;
         
         try {
-            conta = new LawAccount("Processo Trabalista", formata.parse("10/01/2018"), formata.parse("13/05/2021"), 10.0, 
+            conta = new LawAccountAntigo("Processo Trabalista", formata.parse("10/01/2018"), formata.parse("13/05/2021"), 10.0, 
                                                                                   "Joao Carneiro", 123, 1000.00, "abc123");
+            
             assertEquals("10/01/2018", formata.format(conta.getStart()));
             assertEquals("13/05/2021", formata.format(conta.getEnd()));
             assertEquals("Processo Trabalista", conta.getAim());
