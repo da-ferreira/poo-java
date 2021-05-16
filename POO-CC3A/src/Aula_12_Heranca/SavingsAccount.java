@@ -2,6 +2,7 @@
 package Aula_12_Heranca;
 
 /**
+ * Classe para contas poupanças
  * @author david-ferreira
  */
 

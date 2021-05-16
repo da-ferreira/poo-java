@@ -2,21 +2,19 @@
 package Aula_14_Heranca_Classe_Abstrata;
 
 import Aula_12_Heranca.BankAccount;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Classe para contas juridicas
  * @author david-ferreira
  */
 
-public abstract class LawAccount extends BankAccount { 
+public class LawAccountAntigo extends BankAccount { 
     private String aim;     // Toda conta juridica tem um objetivo ao ser aberta.
     private Date start;     // Data de criação da conta
     private Date end;       // Data de liberação da conta
     private double admFee;  // taxa de adm(%)
 
-    public LawAccount(String aim, Date start, Date end, double admFee, String owner, int accountNumber, double balance, String password) {
+    public LawAccountAntigo(String aim, Date start, Date end, double admFee, String owner, int accountNumber, double balance, String password) {
         super(owner, accountNumber, balance, password);
         this.aim = aim;
         this.start = start;
@@ -63,8 +61,6 @@ public abstract class LawAccount extends BankAccount {
 
     @Override
     public String toString() {
-        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
-        return String.format("Aim: %s | Start: %s | End: %s | AdmFee: %.2f | %s", this.aim, formata.format(start), formata.format(end), this.admFee, 
-                                                                                                                                    super.toString());
+        return "LawAccount{" + "aim=" + aim + ", start=" + start + ", end=" + end + ", admFee=" + admFee + '}';
     }
 }
