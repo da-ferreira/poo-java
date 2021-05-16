@@ -3,7 +3,7 @@ package aula_14_heranca_classe_abstrata;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import Aula_14_Heranca_Classe_Abstrata.Bank;
+import Aula_14_Heranca_Classe_Abstrata.BankAntigo;
 import Aula_12_Heranca.BankAccount;
 import Aula_12_Heranca.SavingsAccount;
 
@@ -14,14 +14,14 @@ import Aula_12_Heranca.SavingsAccount;
 public class BankTestFile {  
     @Test
     public void testeConstrutor() {
-        Bank banco = new Bank("entrada3.txt");
+        BankAntigo banco = new BankAntigo("entrada3.txt");
         assertEquals(5, banco.size());
         assertNotNull(banco);
     }
     
     @Test
     public void testeAddAccount() {
-        Bank banco = new Bank("entrada3.txt");
+        BankAntigo banco = new BankAntigo("entrada3.txt");
         assertEquals(5, banco.size());
          
         assertEquals(2045, banco.getAccounts().get(2).getAccountNumber());
@@ -39,7 +39,7 @@ public class BankTestFile {
     
     @Test
     public void testeSortBalance() {
-        Bank banco = new Bank("entrada3.txt");
+        BankAntigo banco = new BankAntigo("entrada3.txt");
         banco.sortBalance();
         
         assertEquals(2062, banco.getAccounts().get(0).getAccountNumber());
@@ -57,7 +57,7 @@ public class BankTestFile {
     
     @Test
     public void testeAccounts() {
-        Bank banco = new Bank("entrada3.txt");
+        BankAntigo banco = new BankAntigo("entrada3.txt");
         
         assertEquals(3, banco.accounts().size());
         assertEquals(1011, banco.accounts().get(0).getAccountNumber());
@@ -67,7 +67,7 @@ public class BankTestFile {
     
     @Test
     public void testeSavingsAccounts() {
-        Bank banco = new Bank("entrada3.txt");
+        BankAntigo banco = new BankAntigo("entrada3.txt");
         
         assertEquals(2, banco.savingsAccounts().size());
         assertEquals("Renato Rodrigues", banco.savingsAccounts().get(0).getOwner());

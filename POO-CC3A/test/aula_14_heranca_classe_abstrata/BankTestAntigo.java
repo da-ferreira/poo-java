@@ -3,9 +3,8 @@ package aula_14_heranca_classe_abstrata;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import Aula_14_Heranca_Classe_Abstrata.Bank;
-import Aula_14_Heranca_Classe_Abstrata.LawAccount;
-import Aula_14_Heranca_Classe_Abstrata.RegularAccount;
+import Aula_14_Heranca_Classe_Abstrata.BankAntigo;
+import Aula_14_Heranca_Classe_Abstrata.LawAccountAntigo;
 import Aula_12_Heranca.SavingsAccount;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,16 +17,16 @@ import java.util.logging.Logger;
  */
 
 
-public class BankTest {
+public class BankTestAntigo {
     @Test
     public void testeContrutor() {
-        Bank banco = new Bank();
+        BankAntigo banco = new BankAntigo();
         assertNotNull(banco);
     }
     
     @Test
     public void testeAddSavingsAccount() {
-        Bank banco = new Bank();
+        BankAntigo banco = new BankAntigo();
         assertNotNull(banco);
         
         SavingsAccount conta = new SavingsAccount(0.05, "Joao Carneiro", 123, 500.00, "abc123");
@@ -40,29 +39,15 @@ public class BankTest {
     }
     
     @Test
-    public void testeAddRegularAccount() {
-        Bank banco = new Bank();
-        assertNotNull(banco);
-        
-        BankAccount conta = new RegularAccount(150.00, "Joao Carneiro", 123, 500.00, "abc123");
-        banco.addAccount(conta);
-        
-        assertEquals(0.05, conta.getInterestRate(), 0.0001);
-        assertEquals(525.0, conta.getBalance(), 0.0001);
-        assertEquals("Joao Carneiro", conta.getOwner());
-        assertEquals(123, conta.getAccountNumber());
-    }
-    /*
-    @Test
     public void testeAddLawAccount() {
-        Bank banco = new Bank();
+        BankAntigo banco = new BankAntigo();
         assertNotNull(banco);
         
         SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
-        LawAccount conta;
+        LawAccountAntigo conta;
         
         try {
-            conta = new LawAccount("Processo Trabalista", formata.parse("10/01/2018"), formata.parse("13/05/2021"), 10.0, 
+            conta = new LawAccountAntigo("Processo Trabalista", formata.parse("10/01/2018"), formata.parse("13/05/2021"), 10.0, 
                                                                                   "Joao Carneiro", 123, 1000.00, "abc123");
             
             assertEquals("10/01/2018", formata.format(conta.getStart()));
@@ -74,9 +59,8 @@ public class BankTest {
             assertEquals("Joao Carneiro", conta.getOwner());
             
         } catch (ParseException ex) {
-            Logger.getLogger(BankTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BankTestAntigo.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
-    */
 }
     
