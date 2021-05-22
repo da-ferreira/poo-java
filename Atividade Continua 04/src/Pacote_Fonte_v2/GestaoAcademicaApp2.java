@@ -14,7 +14,7 @@ public class GestaoAcademicaApp2 {
         faculdade.carregarDadosArquivo("disciplinas.txt", "estudantes.txt", "matriculas.txt");
         Scanner in = new Scanner(System.in);
         
-        System.out.println(" >>> Bem vindo à " + faculdade.getNome() + " <<<");
+        System.out.println("\n >>> Bem vindo à " + faculdade.getNome() + " <<<");
         
         boolean sair = true;
         
@@ -49,6 +49,9 @@ public class GestaoAcademicaApp2 {
                     System.out.println("\nOpção inválida! Tente novamente.");
                     Thread.sleep(1000);
             }
+            
+            if (escolha > 0 && escolha <= 4)
+                Thread.sleep(1500);
         }
         
         System.out.println("\n <-> Volte sempre! <-> \n");
@@ -57,17 +60,24 @@ public class GestaoAcademicaApp2 {
     public static void mostrar_estudantes(Faculdade faculdade) {
         ArrayList<Estudante> estudantes = faculdade.getEstudantes();
         
-        System.out.println("\nINFORMAÇÕES DOS ESTUDANTES\n");
+        System.out.println("\n ~=~ INFORMAÇÕES DOS ESTUDANTES ~=~ \n");
         
         for (Estudante student : estudantes) {
-            System.out.printf("ESTUDANTE: %s, ID: %d\n", student.getNome(), student.getId());
+            if (student instanceof EstudanteGrad) {
+                System.out.printf("Estudante de graduação: %s | ID: %d | Atividades Complementares: %d | Total Créditos: %d\n", 
+                        student.getNome(), student.getId(), ((EstudanteGrad) student).getHorasAtividades(), student.getTotalCreditos());
+            }
+            else {
+                System.out.printf("Estudante de pós-graduação: %s | ID: %d | Tema: %s | Orientador: %s | Total Créditos: %d\n", 
+                        student.getNome(), student.getId(), ((EstudantePos) student).getTema(), ((EstudantePos) student).getOrientador(), student.getTotalCreditos());
+            }
         }
     }
     
     public static void mostrar_disciplinas(Faculdade faculdade) {
         ArrayList<Disciplina> disciplinas = faculdade.getDisciplinas();
         
-        System.out.println("\nCÓDIGOS DAS DISCIPLINAS\n");
+        System.out.println("\n ~=~ CÓDIGOS DAS DISCIPLINAS ~=~ \n");
         
         for (Disciplina discipline : disciplinas) {
             System.out.println(discipline.getCodigo());
@@ -87,12 +97,21 @@ public class GestaoAcademicaApp2 {
         }
         
         if (disciplina_escolhida != null) {
-            System.out.printf("\nNa disciplina %s tem %d estudantes matriculados:\n", disciplina_escolhida.getCodigo(), 
+            System.out.printf("\nNa disciplina %s tem %d estudantes matriculados:\n\n", disciplina_escolhida.getCodigo(), 
                                                                                       disciplina_escolhida.getMatriculas().size());
             
             for (Matricula student : disciplina_escolhida.getMatriculas()) {
-                System.out.printf("ID: %d, Nome: %s, E-mail: %s\n", student.getEstudante().getId(), student.getEstudante().getNome(),
-                                                                                                    student.getEstudante().getNome());
+                if (student.getEstudante() instanceof EstudanteGrad) {
+                    System.out.printf("Estudante de graduação: %s | ID: %d | Atividades Complementares: %d | Total Créditos: %d\n", 
+                            student.getEstudante().getNome(), student.getEstudante().getId(), 
+                            ((EstudanteGrad) student.getEstudante()).getHorasAtividades(), 
+                            student.getEstudante().getTotalCreditos());
+                }   
+                else {
+                    System.out.printf("Estudante de pós-graduação: %s | ID: %d | Tema: %s | Orientador: %s | Total Créditos: %d\n", 
+                            student.getEstudante().getNome(), student.getEstudante().getId(), ((EstudantePos) student.getEstudante()).getTema(), 
+                            ((EstudantePos) student.getEstudante()).getOrientador(), student.getEstudante().getTotalCreditos());
+                }
             }
         }
         else {  // não achou a disciplina informada
@@ -117,12 +136,11 @@ public class GestaoAcademicaApp2 {
             int horas = 0;  // total de créditos 
             
             for (Matricula matr : estudante_escolhido.getMatriculas()) {
-                System.out.printf("Código: %s, Créditos: %d\n", matr.getDisciplina().getCodigo(), matr.getDisciplina().getCreditos());
+                System.out.printf("Código: %s | Créditos: %d\n", matr.getDisciplina().getCodigo(), matr.getDisciplina().getCreditos());
                 horas += matr.getDisciplina().getCreditos();
             }
             
-            System.out.printf("\nO estudante %s do id %d tem um total de créditos (horas) de %d em sua matrículas.\n", estudante_escolhido.getNome(),
-                                                                                                                   estudante_escolhido.getId(), horas);
+            System.out.printf("\nO(a) estudante %s tem um total de créditos (horas) de %d.\n", estudante_escolhido.getNome(), horas);
         }
         else {
             System.out.println("\nO ID do estudante escolhido não está na faculdade. Tente novamente.");
