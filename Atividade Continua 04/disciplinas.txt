@@ -1,0 +1,8 @@
+Estrutura de Dados:80
+Programacao Orientada a Objetos:40
+Sistemas Operacionais:80
+Testes Unitários:80
+Testes de Integração:60
+Big Data:80
+Introdução à Criptografia:80
+Matemática:80
