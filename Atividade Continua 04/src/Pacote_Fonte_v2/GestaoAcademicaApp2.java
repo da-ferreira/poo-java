@@ -9,12 +9,12 @@ import java.util.Scanner;
  */
 
 public class GestaoAcademicaApp2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Faculdade faculdade = new Faculdade("Faculdade Impacta de Tecnologia (FIT)");
-        faculdade.carregarDadosArquivo("disciplinas-baabdaccde.txt", "estudantes-baabdaccde.txt", "matriculas-baabdaccde.txt");
+        faculdade.carregarDadosArquivo("disciplinas.txt", "estudantes.txt", "matriculas.txt");
         Scanner in = new Scanner(System.in);
         
-        System.out.println(" -=- Bem vindo à " + faculdade.getNome() + "-=-");
+        System.out.println(" >>> Bem vindo à " + faculdade.getNome() + " <<<");
         
         boolean sair = true;
         
@@ -46,11 +46,12 @@ public class GestaoAcademicaApp2 {
                     sair = false;
                     break;
                 default:
-                    System.out.println("Opção inválida! Tente novamente.");
+                    System.out.println("\nOpção inválida! Tente novamente.");
+                    Thread.sleep(1000);
             }
         }
         
-        System.out.println(" -= Volte sempre! =-");
+        System.out.println("\n <-> Volte sempre! <-> \n");
     }
     
     public static void mostrar_estudantes(Faculdade faculdade) {

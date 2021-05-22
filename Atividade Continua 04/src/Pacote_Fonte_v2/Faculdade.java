@@ -17,7 +17,6 @@ public class Faculdade {
 
     public Faculdade(String nome) {
         this.nome = nome;
-        
         estudantes = new ArrayList<>();
         disciplinas = new ArrayList<>();
     }
@@ -32,8 +31,14 @@ public class Faculdade {
                 if (linha == null) // se for null, não tem mais dados no arquivo.
                     break;
                 
-                String dados_linha[] = linha.split(":");
-                estudantes.add(new Estudante(Integer.parseInt(dados_linha[0]), dados_linha[1], dados_linha[2]));
+                String dadosLinha[] = linha.split(":");
+                
+                if (dadosLinha.length == 5) {  // Estudante de graduação
+                    estudantes.add(new EstudanteGrad(Integer.parseInt(dadosLinha[0]), dadosLinha[1], dadosLinha[2], Integer.parseInt(dadosLinha[4])));
+                }
+                else {  // Estudante de pós-graduação
+                    estudantes.add(new EstudantePos(Integer.parseInt(dadosLinha[0]), dadosLinha[1], dadosLinha[2], dadosLinha[4], dadosLinha[5]));
+                }                
             }
             
             reader.close();
@@ -45,8 +50,8 @@ public class Faculdade {
                 if (linha == null)
                     break;
                 
-                String dados_linha[] = linha.split(":");
-                disciplinas.add(new Disciplina(dados_linha[0], Integer.parseInt(dados_linha[1])));
+                String dadosLinha[] = linha.split(":");
+                disciplinas.add(new Disciplina(dadosLinha[0], Integer.parseInt(dadosLinha[1])));
             }
             
             reader.close();
@@ -58,12 +63,12 @@ public class Faculdade {
                 if (linha == null)
                     break;
                 
-                String dados_linha[] = linha.split(":");
+                String dadosLinha[] = linha.split(":");
                 
-                /* Estudante e disciplina seja vinculado a cada estudante. */
+                /* Vinculando estudante e disciplina. */
                 
-                long id_student = Integer.parseInt(dados_linha[0]);  // Id do estudante matriculado na materia i.
-                String materia_matriculada = dados_linha[1];         // Materia que o estudante i está matriculado (disciplina).
+                long id_student = Integer.parseInt(dadosLinha[0]);  // Id do estudante matriculado na materia i.
+                String materia_matriculada = dadosLinha[1];         // Materia que o estudante i está matriculado (disciplina).
                 
                 for (Estudante student : estudantes) {
                     if (student.getId() == id_student) {   
