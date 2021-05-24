@@ -20,13 +20,13 @@ public class GestaoAcademicaApp2 {
         
         while (sair) {
             System.out.println("\nEscolha uma consulta.\n");
-            System.out.println("1. Listar os números e nomes de todos os estudantes");
-            System.out.println("2. Listar os códigos de todas as disciplinas");
-            System.out.println("3. Listar todas as informações dos estudantes matriculados em uma determinada disciplina");
-            System.out.println("4. Listar todas as informações das disciplinas em que um determinado estudante está matriculado.");
-            System.out.println("5. Sair do sistema");
+            System.out.println("{ 1 } Listar os números e nomes de todos os estudantes");
+            System.out.println("{ 2 } Listar os códigos de todas as disciplinas");
+            System.out.println("{ 3 } Listar todas as informações dos estudantes matriculados em uma determinada disciplina");
+            System.out.println("{ 4 } Listar todas as informações das disciplinas em que um determinado estudante está matriculado.");
+            System.out.println("{ 5 } Sair do sistema");
             
-            System.out.print(">>> ");
+            System.out.print("\n>>> ");
             int escolha = in.nextInt();
             
             switch (escolha) {
@@ -132,15 +132,12 @@ public class GestaoAcademicaApp2 {
         }
         
         if (estudante_escolhido != null) {
-            System.out.println("");
-            int horas = 0;  // total de créditos 
+            System.out.printf("\nO(a) estudante %s tem um total de créditos de %d e está matriculado nas seguintes disciplinas:\n\n", 
+                                                             estudante_escolhido.getNome(), estudante_escolhido.getTotalCreditos());
             
             for (Matricula matr : estudante_escolhido.getMatriculas()) {
                 System.out.printf("Código: %s | Créditos: %d\n", matr.getDisciplina().getCodigo(), matr.getDisciplina().getCreditos());
-                horas += matr.getDisciplina().getCreditos();
             }
-            
-            System.out.printf("\nO(a) estudante %s tem um total de créditos (horas) de %d.\n", estudante_escolhido.getNome(), horas);
         }
         else {
             System.out.println("\nO ID do estudante escolhido não está na faculdade. Tente novamente.");
